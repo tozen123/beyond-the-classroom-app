@@ -6,7 +6,7 @@ import '../css/CreateClass.css';
 
 import Sidebar from './Sidebar';
 import NavigationBar from './NavigationBar';
-
+//yeah
 const CreateClass = () => {
   const [section, setSection] = useState('');
   const [selectedStudents, setSelectedStudents] = useState([]);
