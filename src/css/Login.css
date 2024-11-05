@@ -1,0 +1,66 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+  }
+  
+  .login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .login-container input[type="email"],
+  .login-container input[type="password"],
+  .login-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  .login-container input[type="submit"] {
+    background-color: #4c6d99;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .login-container input[type="submit"]:hover {
+    background-color: #3c5b8c;
+  }
+  
+  .login-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #4c6d99;
+    text-decoration: none;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+  .remember-me {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .remember-me input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  

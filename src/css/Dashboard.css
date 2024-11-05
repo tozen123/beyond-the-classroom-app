@@ -1,0 +1,42 @@
+.dashboard-section {
+    margin-left: 260px;
+    padding: 80px 20px 20px; 
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .dashboard-card {
+    width: 250px;
+    height: 180px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .class-name {
+    margin-top: 22%;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    }
+    
+  
+  .view-class-link {
+    color: #4c6d99;
+    text-decoration: none;
+  }

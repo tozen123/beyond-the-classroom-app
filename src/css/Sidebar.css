@@ -1,0 +1,97 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    background-color: #4c6d99;
+    color: #fff;
+    transition: all 0.5s ease;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  .logo .logo-image {
+    height: 120px; 
+  }
+  
+  .nav-list {
+    padding-top: 20px;
+  }
+  
+  .nav-list li {
+    list-style: none;
+  }
+  
+
+
+  
+  .nav-list li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000000;
+    padding: 15px 20px 15px 15px;
+  }
+  
+  .nav-list li a i {
+    margin-right: 15px;
+    font-size: 20px;
+
+  }
+  
+  .link-name {
+    font-size: 18px;
+  }
+  
+  .icon-link {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 0px 20px 0px 0px;
+  }
+  .icon-link i {
+    color: #000000;
+  }
+  
+  .sub-menu {
+    padding-left: 45px; 
+    max-height: 200px; 
+    overflow-y: auto; 
+  }
+  
+  .sub-menu::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .sub-menu::-webkit-scrollbar-thumb {
+    background-color: #b3b3b3; 
+    border-radius: 4px;
+  }
+  
+  .sub-menu::-webkit-scrollbar-thumb:hover {
+    background-color: #909090; 
+  }
+  
+  .sub-menu li a {
+    padding: 10px 0;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .sub-menu li a:hover {
+    background-color: #e0e0e0;
+  }
+  .rotate {
+    transform: rotate(-180deg);
+  }
+  
+  .arrow {
+    font-size: 14px;
+    align-self: center;
+  }
