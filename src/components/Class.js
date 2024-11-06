@@ -17,6 +17,10 @@ const Class = () => {
   const [showAddStudentForm, setShowAddStudentForm] = useState(false);
   const [newStudent, setNewStudent] = useState({ firstName: '', lastName: '', lrn: '' });
   const [leaderboard, setLeaderboard] = useState([]);
+
+  const [activeWorkTab, setActiveWorkTab] = useState('classwork');
+  const [expandedUnits, setExpandedUnits] = useState({});
+
   useEffect(() => {
     const fetchClassData = async () => {
       try {
@@ -25,10 +29,8 @@ const Class = () => {
           const classData = classDoc.data();
           setClassName(classData.section || '');
           setClassCode(classData.classCode || '');
-          setStudents(classData.students || []);
-
-          const classCode = classData.classCode;
-          fetchLeaderboard(classCode);
+          fetchStudents(classData.classCode);
+          fetchLeaderboard(classData.classCode);
         }
       } catch (error) {
         console.error('Error fetching class data:', error);
@@ -37,6 +39,25 @@ const Class = () => {
 
     fetchClassData();
   }, [id]);
+
+  const fetchStudents = async (classCode) => {
+    try {
+      const studentsRef = collection(db, 'students');
+      const q = query(studentsRef, where('classCode', '==', classCode));
+      const querySnapshot = await getDocs(q);
+
+      const studentsData = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        firstName: doc.data().firstName,
+        lastName: doc.data().lastName,
+        lrn: doc.data().lrn
+      }));
+
+      setStudents(studentsData);
+    } catch (error) {
+      console.error('Error fetching students:', error);
+    }
+  };
 
   const handleAddStudent = async () => {
     if (!newStudent.firstName || !newStudent.lastName || !newStudent.lrn) {
@@ -61,6 +82,7 @@ const Class = () => {
       console.error('Error adding student:', error);
     }
   };
+
   const fetchLeaderboard = async (classCode) => {
     try {
       const studentsRef = collection(db, 'students');
@@ -80,6 +102,15 @@ const Class = () => {
       console.error('Error fetching leaderboard data:', error);
     }
   };
+
+  const toggleUnit = (unit) => {
+    setExpandedUnits((prev) => ({
+      ...prev,
+      [unit]: !prev[unit],
+    }));
+  };
+
+
   const renderContent = () => {
     switch (activeTab) {
       case 'students':
@@ -153,7 +184,69 @@ const Class = () => {
           </div>
         );
       case 'classwork':
-        return <div className="content-section">Classwork</div>;
+        return (
+          <div className="content-section">
+            <h2>Classwork</h2>
+            <div className="dropdown units-container">
+              
+              <div className="unit" onClick={() => toggleUnit(1)}>
+                <i className="fas fa-plus plus-icon"></i>
+                <span className="unit-name">Yunit I: Pananagutang Pansarili at Mabuting Kasapi ng Pamilya</span>
+                <i className="fas fa-lock lock-icon"></i>
+              </div>
+              {expandedUnits[1] && (
+                <div className="unit-content">
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/1`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/2`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/3`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/4`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                </div>
+              )}
+
+              <div className="unit" onClick={() => toggleUnit(2)}>
+                <i className="fas fa-plus plus-icon"></i>
+                <span className="unit-name">Yunit II: Pakikipagkapuwa-Tao</span>
+                <i className="fas fa-lock lock-icon"></i>
+              </div>
+              {expandedUnits[2] && (
+                <div className="unit-content">
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/5`)}>Aralin 5: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/6`)}>Aralin 6: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/7`)}>Aralin 7: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/8`)}>Aralin 8: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                </div>
+              )}
+
+              <div className="unit" onClick={() => toggleUnit(3)}>
+                <i className="fas fa-plus plus-icon"></i>
+                <span className="unit-name">Yunit III: Pagmamahal sa Bansa at Pakikibahagi sa Pandaigdigang Pagkakaisa</span>
+                <i className="fas fa-lock lock-icon"></i>
+              </div>
+              {expandedUnits[3] && (
+                <div className="unit-content">
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/9`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/10`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/11`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/12`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                </div>
+              )}
+
+              <div className="unit" onClick={() => toggleUnit(4)}>
+                <i className="fas fa-plus plus-icon"></i>
+                <span className="unit-name">Yunit IV: Pananalig at Pagmamahal sa Diyos: Paninindigan sa Kabutihan</span>
+                <i className="fas fa-lock lock-icon"></i>
+              </div>
+              {expandedUnits[4] && (
+                <div className="unit-content">
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/13`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/14`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/15`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/16`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                </div>
+              )}
+            </div>
+          </div>
+        );
       case 'leaderboard':
         return (
           <div className="content-section">
@@ -186,7 +279,7 @@ const Class = () => {
       <Sidebar />
       <NavigationBar />
       <div className="main-content">
-        <h1>Class: {className}</h1>
+        <h1>Class: {className} ClassCode: {classCode}</h1>
         <div className="tab-navigation">
           <button
             className={`tab-button ${activeTab === 'students' ? 'active' : ''}`}

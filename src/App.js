@@ -8,6 +8,8 @@ import CreateClass from './components/CreateClass';
 import Profile from './components/Profile';
 import Class from './components/Class';
 import StudentProfile from './components/StudentProfile';
+import Aralin from './components/Aralin';
+
 
 import ProtectedRoute from './components/ProtectedRoute';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -25,7 +27,8 @@ function App() {
     { path: '/createclass', element: <CreateClass /> },
     { path: '/profile', element: <Profile /> },
     { path: '/class/:id', element: <Class /> },
-    { path: '/studentprofile/:id', element: <StudentProfile /> } 
+    { path: '/studentprofile/:id', element: <StudentProfile /> },
+    { path: '/aralin/:id', element: <Aralin /> } 
   ];
 
   return (

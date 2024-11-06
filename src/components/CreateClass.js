@@ -52,11 +52,7 @@ const CreateClass = () => {
       createdBy: localId,
       created_at: Timestamp.now(),
       section,
-      students: selectedStudents.map(student => ({
-        lrn: student.lrn,
-        firstName: student.firstName,
-        lastName: student.lastName,
-      })),
+      
     };
 
     try {
