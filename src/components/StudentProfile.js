@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { db } from '../firebaseConfig';
-import { collection, query, where, getDocs, updateDoc, doc } from 'firebase/firestore';
+import { collection, query, where, getDocs } from 'firebase/firestore';
 import Sidebar from './Sidebar';
 import NavigationBar from './NavigationBar';
 import '../css/StudentProfile.css';
@@ -17,13 +17,11 @@ const StudentProfile = () => {
     level: 1,
     points: 0,
     currency: 1,
-    tasks: []
   });
-  const [rank, setRank] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editedFirstName, setEditedFirstName] = useState('');
-  const [editedLastName, setEditedLastName] = useState('');
-  const [studentDocId, setStudentDocId] = useState(null);
+  const [assessments, setAssessments] = useState([]);
+  const [reflections, setReflections] = useState([]);
+  const [expandedAssessments, setExpandedAssessments] = useState({});
+  const [expandedReflections, setExpandedReflections] = useState({});
 
   useEffect(() => {
     const fetchStudentData = async () => {
@@ -35,20 +33,16 @@ const StudentProfile = () => {
         if (!studentSnapshot.empty) {
           const studentDoc = studentSnapshot.docs[0];
           const data = studentDoc.data();
-          const classCode = data.classCode;
-          setStudentDocId(studentDoc.id);
           setStudentData({
             firstName: data.firstName || '',
             lastName: data.lastName || '',
-            classCode: classCode || '',
+            classCode: data.classCode || '',
             level: data.level || 1,
             points: data.points || 0,
             currency: data.currency || 1,
-            tasks: data.tasks || []
           });
-          setEditedFirstName(data.firstName || '');
-          setEditedLastName(data.lastName || '');
-          fetchClassRanking(classCode, data.points);
+
+          fetchAssessmentsAndReflections(studentDoc.id);
         } else {
           console.log('No matching student found for the provided LRN.');
         }
@@ -57,48 +51,37 @@ const StudentProfile = () => {
       }
     };
 
-    const fetchClassRanking = async (classCode, studentPoints) => {
+    const fetchAssessmentsAndReflections = async (studentId) => {
       try {
-        const studentsRef = collection(db, 'students');
-        const classQuery = query(studentsRef, where('classCode', '==', classCode));
-        const classSnapshot = await getDocs(classQuery);
+        const assessmentsRef = collection(db, 'students', studentId, 'assessments');
+        const assessmentsSnapshot = await getDocs(assessmentsRef);
+        const assessmentsData = assessmentsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setAssessments(assessmentsData);
 
-        const classStudents = classSnapshot.docs.map(doc => ({
-          id: doc.id,
-          points: doc.data().points || 0
-        }));
-
-        classStudents.sort((a, b) => b.points - a.points);
-
-        const studentRank = classStudents.findIndex(student => student.points === studentPoints) + 1;
-        setRank(studentRank);
+        const reflectionsRef = collection(db, 'students', studentId, 'reflections');
+        const reflectionsSnapshot = await getDocs(reflectionsRef);
+        const reflectionsData = reflectionsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setReflections(reflectionsData);
       } catch (error) {
-        console.error('Error fetching class ranking:', error);
+        console.error('Error fetching assessments and reflections:', error);
       }
     };
 
     fetchStudentData();
   }, [id]);
 
-  const handleSave = async () => {
-    if (!studentDocId) return;
-    
-    try {
-      const studentRef = doc(db, 'students', studentDocId);
-      await updateDoc(studentRef, {
-        firstName: editedFirstName,
-        lastName: editedLastName
-      });
+  const toggleAssessment = (assessmentId) => {
+    setExpandedAssessments(prevState => ({
+      ...prevState,
+      [assessmentId]: !prevState[assessmentId],
+    }));
+  };
 
-      setStudentData(prevData => ({
-        ...prevData,
-        firstName: editedFirstName,
-        lastName: editedLastName
-      }));
-      setIsEditing(false);
-    } catch (error) {
-      console.error('Error updating student data:', error);
-    }
+  const toggleReflection = (reflectionId) => {
+    setExpandedReflections(prevState => ({
+      ...prevState,
+      [reflectionId]: !prevState[reflectionId],
+    }));
   };
 
   const progress = ((studentData.level / TOTAL_LEVELS) * 100).toFixed(0);
@@ -110,41 +93,12 @@ const StudentProfile = () => {
 
       <div className="home-section">
         <div className="home-content">
-          
           <div className="profile-card">
             <div className="info">
-              {isEditing ? (
-                <>
-                  <label>
-                    First Name:
-                    <input
-                      type="text"
-                      value={editedFirstName}
-                      onChange={(e) => setEditedFirstName(e.target.value)}
-                    />
-                  </label>
-                  <label>
-                    Last Name:
-                    <input
-                      type="text"
-                      value={editedLastName}
-                      onChange={(e) => setEditedLastName(e.target.value)}
-                    />
-                  </label>
-                  <button className="btn btn-success" onClick={handleSave}>Save</button>
-                  <button className="btn btn-secondary" onClick={() => setIsEditing(false)}>Cancel</button>
-                </>
-              ) : (
-                <>
-                  <p><strong>Name:</strong> {studentData.firstName} {studentData.lastName}</p>
-                  <p><strong>Class Code:</strong> {studentData.classCode}</p>
-                  <p><strong>Current Level:</strong> Level {studentData.level}</p>
-                  <p><strong>Current Rank:</strong> {rank ? `${rank}th` : 'Unranked (0)'}</p>
-                  <div className="edit-icon">
-                    <i className="fas fa-edit" onClick={() => setIsEditing(true)}></i>
-                  </div>
-                </>
-              )}
+              <p><strong>Name:</strong> {studentData.firstName} {studentData.lastName}</p>
+              <p><strong>Class Code:</strong> {studentData.classCode}</p>
+              <p><strong>Current Level:</strong> Level {studentData.level}</p>
+              <p><strong>Points:</strong> {studentData.points}</p>
             </div>
           </div>
 
@@ -156,13 +110,44 @@ const StudentProfile = () => {
               <p>Progress: {progress}% Completed</p>
             </div>
 
-            <div className="task-list">
-              {studentData.tasks.map((task, index) => (
-                <div className="task-item" key={index}>
-                  <span className="task-name">{task.name}</span>
-                  <span className={`status ${task.status}`}>
-                    {task.status === "finished" ? "Finished" : "Unfinished"}
-                  </span>
+            {/* Assessments Section */}
+            <div className="assessments-section">
+              <h3>Assessments</h3>
+              {assessments.map((assessment) => (
+                <div key={assessment.id} className="assessment-card">
+                  <h4 onClick={() => toggleAssessment(assessment.id)}>
+                    Assessment {assessment.id} {expandedAssessments[assessment.id] ? '-' : '+'}
+                  </h4>
+                  {expandedAssessments[assessment.id] && (
+                    <div className="assessment-details">
+                      {assessment.answers.map((answer, idx) => (
+                        <div key={idx} className="answer-item">
+                          <p><strong>Question:</strong> {answer.questionText}</p>
+                          <p><strong>Your Answer:</strong> {answer.selectedAnswer}</p>
+                          <p><strong>Correct:</strong> {answer.correct ? 'Yes' : 'No'}</p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Reflections Section */}
+            <div className="reflections-section">
+              <h3>Reflections</h3>
+              {reflections.map((reflection) => (
+                <div key={reflection.id} className="reflection-card">
+                  <h4 onClick={() => toggleReflection(reflection.id)}>
+                    Reflection {reflection.level} {expandedReflections[reflection.id] ? '-' : '+'}
+                  </h4>
+                  {expandedReflections[reflection.id] && (
+                    <div className="reflection-details">
+                      <p><strong>Level:</strong> {reflection.level}</p>
+                      <p><strong>Reflection:</strong> {reflection.reflection}</p>
+                      <p><strong>Date:</strong> {new Date(reflection.timestamp.seconds * 1000).toLocaleDateString()}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

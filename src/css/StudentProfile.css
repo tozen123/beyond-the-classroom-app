@@ -171,5 +171,65 @@ body {
   .unfinished {
     background-color: rgb(234, 234, 98);
     color: black;
+  }.assessments-section, .reflections-section {
+    margin-top: 20px;
+  }
+  
+  .assessment-card, .reflection-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .assessment-card h4, .reflection-card h4 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .assessment-details, .reflection-details {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 6px;
+    max-height: 200px; /* Set max-height for scrollable area */
+    overflow-y: auto; /* Enable vertical scroll */
+  }
+  
+  .assessment-details::-webkit-scrollbar, .reflection-details::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .assessment-details::-webkit-scrollbar-thumb, .reflection-details::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+  
+  .answer-item, .reflection-details p {
+    margin: 5px 0;
+  }
+  
+  .progress-bar-container {
+    margin-top: 20px;
+  }
+  
+  .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    height: 20px;
+  }
+  
+  .progress-bar-fill {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 8px;
+  }
+  
+  .progress-bar-container p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
   }
   
