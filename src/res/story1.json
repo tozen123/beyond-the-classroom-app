@@ -1,0 +1,62 @@
+{
+  "story_id": "story1",
+  "title": "A Great Son",
+  "description": "Read the story. Find out how a boy who organizes goods shows courage.",
+  "cover_image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fbook1_cover.png?alt=media&token=f3822a4f-acbe -46ec-b1fc-d90eb1208c04",
+  "parts": [
+    {
+      "id": "part1",
+      "text": "\nAlbert is already up early. He helps his mother prepare the food that is brought from their neighbor. His mother sells the food in front of their house. The mother is paid according to the amount of food that he had sold. After the mother had arranged the sale, he was getting ready to go to school. This is Albert's routine, for almost a year.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i1.png?alt=media&token=39c8cde9-7c0b -4b25-91ad-5c095f3029d1",
+      "audio": "s1_1.mp3"
+    },
+    {
+      "id": "part2",
+      "text": "\nAlbert is an only child, but unlike other children his age who can ask for anything from their parents. He helps his mother make a living because his father died almost a year ago. \n \nAs Albert walks, children see him playing in the street.\n\n ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i2.png?alt=media&token=6c52eb8c-18e4 -4cf1-9f54-ac2738ae70bb",
+      "audio": "s1_2.mp3"
+    },
+    {
+      "id": "part3",
+      "text": "\n\"Here comes Biko-Kutsinta!\" sneered Gerry. \n\n\"Right, and the food you sell tastes bad. So what you sell is chocolate cakes, they're tastier,\" added Mark.\n\n ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i3.png?alt=media&token=f2185ef9-9e84 -4397-b959-2ca39958ce2f",
+      "audio": "s1_3.mp3"
+    },
+    {
+      "id": "part4",
+      "text": "\nAlbert just ignored them. They were just some of the people he met on the road every day. He just kept walking. He remembered his mother's advice to always be calm and not fight. even angry.\n\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i4.png?alt=media&token=a7872a42-a031 -4f06-b11d-8839678cdb39",
+      "audio": "s1_4.mp3"
+    },
+    {
+      "id": "part5",
+      "text": "\nAlbert usually comes home happy after school. He is happy because he has learned something from school. \n\n\"Is that you, Son?\" Albert's mother asked. Get some rest, son. Have you done your homework? Yes, Mom, replied the good son. Let's eat so you can take your medicine." ,
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i5.png?alt=media&token=b4014cf5-d0ba -42b3-9225-9cc67355f429",
+      "audio": "s1_5.mp3"
+    },
+    {
+      "id": "part6",
+      "text": "\nAling Vicky, Albert's mother, was in tears. \"My son is kind and strong in facing the trials we are going through. He doesn't complain either. I know his future will be bright. I'm really lucky to have a son like him. May God always guide him,\" the mother whispered to herself.\n\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i6.png?alt=media&token=201b14f8-ab43 -4799-a13c-92eea99eba33",
+      "audio": "s1_6.mp3"
+    },
+    {
+      "id": "part7",
+      "text": "\nOnce, Albert got a low score in his exam. He was taking care of his sick mother so he couldn't go to school. His teacher talked to him and told him about it. Albert told the his situation is a teacher. Apart from helping his mother with her shopping, he sometimes takes care of her when she gets sick.\n\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i7.png?alt=media&token=4cbab3d7-00ab -409c-bbfc-c65a398ba0c0",
+      "audio": "s1_7.mp3"
+    },
+    {
+      "id": "part8",
+      "text": "\nA week after his conversation with his teacher, he was summoned to the principal's office. There was good news for him: his school's Parents-Teachers Association (PTA) would pay for his school expenses school. He will get regular expenses. \n\nHe happily told his mother the good news.\n\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i8.png?alt=media&token=f8902acf-d388 -431e-b129-a97be0e78117",
+      "audio": "s1_8.mp3"
+    },
+    {
+      "id": "part9",
+      "text": "\nAlbert no longer needs to buy food in the morning. His mother rarely gets sick anymore. Albert now has time with his friends. Because Albert is helpful, he teaches his classmates \n\n\"Thank you, my God, for the stability You gave my son,\" Aling Vicky said with a smile.\n\n",
+      "image": "https://firebasestorage.googleapis.com/v0/b/beyond-the-classroom-e2097.appspot.com/o/aralin%2Fstory_images%2Fstory1%2Fs1_i9.png?alt=media&token=1f6ef96d-cd33 -4f1a-8701-2fabb2b0224a",
+      "audio": "s1_9.mp3"
+    }
+  ]
+}

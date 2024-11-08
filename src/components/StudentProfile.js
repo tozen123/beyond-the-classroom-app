@@ -110,7 +110,6 @@ const StudentProfile = () => {
               <p>Progress: {progress}% Completed</p>
             </div>
 
-            {/* Assessments Section */}
             <div className="assessments-section">
               <h3>Assessments</h3>
               {assessments.map((assessment) => (
@@ -133,7 +132,6 @@ const StudentProfile = () => {
               ))}
             </div>
 
-            {/* Reflections Section */}
             <div className="reflections-section">
               <h3>Reflections</h3>
               {reflections.map((reflection) => (
