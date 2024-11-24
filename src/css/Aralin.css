@@ -70,4 +70,12 @@
 
 .aralin-item:hover {
   background-color: #f0f0f0;
+}.scrollable-content {
+  overflow-y: auto;
+  max-height: 60vh;
+  padding: 20px;
+}
+
+.story-part {
+  margin-bottom: 20px;
 }

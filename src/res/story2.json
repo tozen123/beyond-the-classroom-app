@@ -1,0 +1,37 @@
+{
+  "story_id": "story2",
+  "title": "Ang Pasiya ni Isko",
+  "description": "Basahin ang kuwento. Alamin ang kahalagahan ng mapanuring pag-iisip sa paggawa ng pasiya.",
+  "parts": [
+    {
+      "id": "part1",
+      "text": "Masaya ang mga mag-aaral Gng. Lazatin. Lahat ay masiglang nagsasalita ni tungkol Sa outing ng klase. Dahil hindi pa sila nakapagpasiya kung saan pupunta, nag-bigay sila ng ilang mungkahi.\n\nLimang pangkat ang bumubuo sa klase. Iminungkahi ni Isko, isa sa mga lider ngpangkat, na mag-camping sa tabing-dagat. \n\nNagmungkahi naman ang isang pangkat na pumunta sa isang museo. Gayunpaman, bumoto at sumang-ayon sila na sa tabing-dagat pumunta.\n",
+      "image": "s2_i1.png",
+      "audio": "s2_1.mp3"
+    },
+    {
+      "id": "part2",
+      "text": "Nang sumunod na araw, maagang-maaga pa ay nasa paaralan na ang mga mag-aaral. Maaga ring dumating si Gng. Lazatin. Inihanda nila ang mga bagay na kakailanganin nila. Isang pangkat ang naatasang maghanda ng mga palaro para sa lahat. Nagdala sila ng mga bola, lubid, at sungka. \n\nNang dumating sa tabing-dagat ang klase, nagbilin si Gng. Lazatin sa mga mag-aaral na huwag lumayo Sa kanilang kubo at walang hihiwalay Sa kanilang pangkat. \n\nNagsimula na ang masasayang gawain. May naglaro ng sungka, patintero. volleyball, at hilahan (tug-of-war). Masayang-masaya ang lahat nang biglang sumigaw ang ilang mag-aaral. \n",
+      "image": "s2_i2.png",
+      "audio": "s2_2.mp3"
+    },
+    {
+      "id": "part3",
+      "text": "Napatingin si Isko sa gawi ng dagat kung saan nagmula ang sigaw. \n\nNakita niya ang ilan sa kanilang mga kamag-aral na nakasakay sa isang bangka na dahan-dahang tinatangay ng alon palayo sa pampang. Ito ang mga mag-aaral na palihim na kinalag sa pagkakatali ang bangka. \n\nNagsisigaw ang mga bata sa takot. Kaagad nag-utos si Gng Lazatin sa ilang mag-aaral na humingi ng tulong sa mga taong nakatira sa malapit. Samantala, naisip ni Isko na maaring biglang itaboy ng alon ang bangka palayo sa dalampasigan. Maaari ring itaob iyon ng alon. Nasa panganib ang buhay ng kaniyang mga kamag-aral.\n\nKaagad tinawag ni Isko si Kuya Marvin, ang lifeguard sa nasabing resort. Tinulungan niyang itali ang mga lubid na ginamit nila sa larong hilahan, tumulong din ang iba pa niyang kamag-aral. Itinali nila ang kabilang dulo ng lubid sa puno ng niyog. \n\nIyon ang ginamit ni Kuya Marvin sa pagsagip sa mga bata. Hinanap ni Kuya Marvin ang dulo ng tali na natanggal sa bangka, pinagdugtong ang itinali nilang lubid at lumangoy pabalik sa pampang.\n",
+      "image": "s2_i3.png",
+      "audio": "s2_3.mp3"
+    },
+    {
+      "id": "part4",
+      "text": "Kung hindi agad nakapagpasiya si Isko na gawin iyon, baka naitaboy nang palayo ng alon sa gitna ng dagat ang mga kamag-aral niya. \n\nKaagad ding gumawa ng paraan at humingi ng tulong si Gng. Lazatin sa mga namumuno sa barangay. Pinaalalahanan din niya ang iba pang mga bata na bantayan ang isa' isa at huwag pumunta sa dagat.\n\nDumating ang Kapitan ng Barangay kasama ang mga magulang ng iba pang mag-aaral. Kinausap nila si Gng. Lazatin tungkol sa nangyari.\n",
+      "image": "s2_i4.png",
+      "audio": "s2_4.mp3"
+    },
+    {
+      "id": "part5",
+      "text": "Bago umalis, kinausap ni Gng. Lazatiń ang kaniyang mga mag-aaral. Binigyang-babala niya sila na hindi magandang pasiya ang pagsakay nila sa bangka. Inilagay nila sa panganib ang kanilang buhay at pinag-alala nila ang ibang tao. \n\n\"Sa katunayan, si Isko lamang ang nakagawa ng tamang pasiya nang araw na iyon,\" sabi ng guro. Sumangayon ang lahat ng mag-aaral at nagpalakpakan. Pinagsabihan ang lahat na ayusin na ang kanilang mga gamit at humanda na sa pag-uwi.\n",
+      "image": "s2_i5.png",
+      "audio": "s2_5.mp3"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "story_id": "story3",
+  "title": "Isang Mahirap na Desisyon",
+  "description": "Basahin ang kuwento. Alamin kung paano ipinakita ng pamilya ang pagkabukas-isipan at pagkamahinahon upang magkasundo.",
+  "parts": [
+    {
+      "id": "part1",
+      "text": "Sa Makati naninirahan ang pamilya nina Nelia. Doon na ipinanganak ang kanilang mga magulang. Ang bahay na kanilang tinitirahan na lamang ang natitirang maliit na bahay doon dahil napaliligiran na ito ng matatas na gusali at malalaking kompaniya.\n\nMasaya silang naninirahan doon dahil malapit sila sa bilihan ng kanilang mga pangangailangan at malapit din sa kaniyang paaralan. Pati ang kapatid niya na si Leah, na pangalawa sa panganay ay sa Makati rin nagtatrabaho. Ang tanging malayo lang ang trabaho ay ang tatay nila na nagtatrabaho sa Dasmariñas, Cavite.\n",
+      "image": "s3_i1.png",
+      "audio": "s3_1.mp3"
+    },
+    {
+      "id": "part2",
+      "text": "Isang gabi, nakita nilang magkakapatid na seryosong nag-uusap ang kanilang ama at ina. Mayroon din silang hawak na mga sulat. Naging suliranin para sa mga magkakapatid ang nakita nilang iyon, lalo na nang naulit pa ito ng ilang beses.\n\n\"Wala na kayang trabaho si Tatay?\" ang tanong ni Nelia sa sarili. Pero sa tingin niya, hindi naman masyadong seryoso ang sitwasyon. \"Ano nga kaya ang problema ng ating pamilya?\" tanong naman ng kanilang panganay na si Tom. \n\n\"Malalaman din natin yun kapag handa na silang ipaalam sa atin ang problema, dahil kung mayroon mang dapat bigyan ng pasiya, dapat, kasama tayong magbibigay ng ating sari-sariling pasiya, hanggang tayo ay mabuo sa pagkakaisa,\" ang sabi naman ni Leah.\n",
+      "image": "s3_i2.png",
+      "audio": "s3_2.mp3"
+    },
+    {
+      "id": "part3",
+      "text": "Dumating na nga ang pagkakataong hinihintay ng magkakapatid. Isang araw ng Linggo, pagkatapos ng hapunan, pinulong ng mga magulang nila ang tatlong magkaka patid at ipinaalam ang sitwasyong dapat bigyan agad ng pagpapasiya.\n\n\"Mga anak,\" ang bungad ng kanilang ama. \"Kailangan nating pagpasiyahan kung papayag tayo na bilihin ng katabi nating mall ang ating bahay at lupa. Mukha na tayong kawawa dito.\"\n\n\"Isa pa, mga anak, kahit sarili natin ang bahay at lupa, mukha na tayong squatter dito. Kaya, sinabi ng inyong ina na papayag na siya na ipagbili ang ating bahay at lupa, pumayag na ako. Ang inyong pasiya na lamang ang aming hihintayin,\" ang paliwanag ng kanilang ama.\n\n\"Oo nga, Tatay, mukha na nga tayong kawawa dito, pero patagalin pa natin para tumaas pa ang halaga ng ating bahay at lupa\" ang paliwanag ni Tom.\n\n\"Ikaw, Leah, anong pasiya mo?\" ang tanong ng kaniyang ina. \"Okey lang po sa akin kasi kailangan na. Hindi na talaga tayo bagay dito.\"\n\n\"A, ewan sa inyo!\" ang sigaw ni Tom. \"Ang kabutihan ng pamilya ang iniisip ko kaya gusto kong pataasin pa ang halaga ng ari-arian natin!\" sabay alis ni Tom at nagkulong sa kuwarto.\n",
+      "image": "s3_i3.png",
+      "audio": "s3_3.mp3"
+    },
+    {
+      "id": "part4",
+      "text": "\"Ikaw, anak,\" ang tanong ng nanay niya kay Nelia. \"Kahit po malalayo ako sa mga kamag-aral ko at kaibigan, payag po ako na iwanan na natin ang bahay na ito, kasi kailangan na,\" ang sabi ni Nelia. \n\n\"Aba, kahit bunso, bukas ang isipan, a!\" ang nakangiting sabi ng kanilang nanay. \"Hayaan ninyo, susundan ko sa kuwarto ang kuya ninyo. Paliliwanagan ko,\" ang dugtong ng kanilang Nanay.\n\nMahigit isang oras ding nag-usap ang mag-ina. Bumalik sila sa salas at sinabi ni Tom na dahil siya lang ang may ibang pasiya, at napagpaliwanagan naman siya ng kaniyang ina na ang tawad na tatlong milyong piso para sa maliit na bahay at lupa ay malaki na ring maituturing.\n\nNapagkasunduan rin ng mag-anak na sa Dasmariñas na sila bumili ng bahay at lupa, at doon na rin sila lahat magtatrabaho at mag-aaral.\n\nDahil sa pagkabukas-isipan at mahinahong usapan, nagkaisa ang buong pamilya.\n",
+      "image": "s3_i4.png",
+      "audio": "s3_4.mp3"
+    }
+  ]
+}
