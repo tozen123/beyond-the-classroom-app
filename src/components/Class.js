@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 import NavigationBar from './NavigationBar';
 
 const Class = () => {
-  const { classId, id } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('students');
   const [students, setStudents] = useState([]);
@@ -118,7 +118,7 @@ const Class = () => {
           <div className="content-section">
             <h2>List of Students</h2>
             <button
-              className="btn btn-success add-student-btn"
+              className="add-btn btn btn-success add-student-btn"
               onClick={() => setShowAddStudentForm(true)}
             >
               Add Student
@@ -128,29 +128,36 @@ const Class = () => {
               <div className="add-student-form">
                 <h3>Add New Student</h3>
                 <input
+                  className='input-add'
                   type="text"
                   placeholder="First Name"
                   value={newStudent.firstName}
                   onChange={(e) => setNewStudent({ ...newStudent, firstName: e.target.value })}
                 />
                 <input
+                  className='input-add'
+
                   type="text"
                   placeholder="Last Name"
                   value={newStudent.lastName}
                   onChange={(e) => setNewStudent({ ...newStudent, lastName: e.target.value })}
                 />
                 <input
+                  className='input-add'
+
                   type="text"
                   placeholder="LRN"
                   value={newStudent.lrn}
                   onChange={(e) => setNewStudent({ ...newStudent, lrn: e.target.value })}
                 />
-                <button className="btn btn-primary" onClick={handleAddStudent}>
+                <div>
+                <button className="add-student btn btn-primary" onClick={handleAddStudent}>
                   Save Student
                 </button>
-                <button className="btn btn-secondary" onClick={() => setShowAddStudentForm(false)}>
+                <button className="add-student  btn btn-secondary" onClick={() => setShowAddStudentForm(false)}>
                   Cancel
                 </button>
+                  </div>
               </div>
             )}
 
