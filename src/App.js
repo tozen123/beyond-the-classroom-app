@@ -13,6 +13,7 @@ import Aralin from './components/Aralin';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import Analytics from './components/Analytics';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -28,7 +29,10 @@ function App() {
     { path: '/profile', element: <Profile /> },
     { path: '/class/:id', element: <Class /> },
     { path: '/studentprofile/:id', element: <StudentProfile /> },
-    { path: '/aralin/:id', element: <Aralin /> } 
+
+    { path: '/analytics', element: <Analytics /> },
+
+    { path: '/aralin/:classid/:id', element: <Aralin /> } 
   ];
 
   return (

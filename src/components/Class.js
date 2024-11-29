@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 import NavigationBar from './NavigationBar';
 
 const Class = () => {
-  const { id } = useParams();
+  const { classId, id } = useParams();
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('students');
   const [students, setStudents] = useState([]);
@@ -196,10 +196,10 @@ const Class = () => {
               </div>
               {expandedUnits[1] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/1`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/2`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/3`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/4`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/1`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/2`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/3`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/4`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
                 </div>
               )}
 
@@ -210,10 +210,10 @@ const Class = () => {
               </div>
               {expandedUnits[2] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/5`)}>Aralin 5: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/6`)}>Aralin 6: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/7`)}>Aralin 7: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/8`)}>Aralin 8: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/5`)}>Aralin 5: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/6`)}>Aralin 6: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/7`)}>Aralin 7: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/8`)}>Aralin 8: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
                 </div>
               )}
 
@@ -224,10 +224,10 @@ const Class = () => {
               </div>
               {expandedUnits[3] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/9`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/10`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/11`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/12`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/9`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/10`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/11`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/12`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
                 </div>
               )}
 
@@ -238,10 +238,10 @@ const Class = () => {
               </div>
               {expandedUnits[4] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/13`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/14`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/15`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/16`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/13`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/14`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/15`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/16`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
                 </div>
               )}
             </div>
@@ -279,7 +279,7 @@ const Class = () => {
       <Sidebar />
       <NavigationBar />
       <div className="main-content">
-        <h1>Class: {className} ClassCode: {classCode}</h1>
+        <h1>Class: {className} Code: {classCode}</h1>
         <div className="tab-navigation">
           <button
             className={`tab-button ${activeTab === 'students' ? 'active' : ''}`}

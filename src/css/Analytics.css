@@ -1,0 +1,19 @@
+/* Add this to your CSS file */
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    height:600px;
+    width: 1000px;
+  }
+  
+  .chart-box {
+    width: 45%;
+    height: 400px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
