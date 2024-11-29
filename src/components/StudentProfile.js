@@ -115,7 +115,7 @@ const StudentProfile = () => {
               {assessments.map((assessment) => (
                 <div key={assessment.id} className="assessment-card">
                   <h4 onClick={() => toggleAssessment(assessment.id)}>
-                    Assessment {assessment.id} {expandedAssessments[assessment.id] ? '-' : '+'}
+                    Quiz ID: {assessment.quizId || assessment.id} {expandedAssessments[assessment.id] ? '-' : '+'}
                   </h4>
                   {expandedAssessments[assessment.id] && (
                     <div className="assessment-details">
