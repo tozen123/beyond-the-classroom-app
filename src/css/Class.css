@@ -29,7 +29,16 @@
     display: block;
     
   }
-
+  .class-modal {
+    margin: 20% 45%;
+    align-self: auto;
+    padding: 20px;
+    max-width: 350px;
+    max-height: 450px;
+    height: 32%;
+    text-align: center;
+    z-index: 1001;
+  }
   .add-student {
     height: 50px;
     width: 50%;

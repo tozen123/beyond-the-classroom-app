@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebaseConfig';
-import { doc, getDoc, collection, addDoc, query, where, getDocs, updateDoc, arrayUnion } from 'firebase/firestore';
+import { doc, getDoc, collection, addDoc, query, where, getDocs, updateDoc, arrayUnion, deleteDoc } from 'firebase/firestore';
 import '../css/Class.css';
 
 import Sidebar from './Sidebar';
@@ -20,6 +20,13 @@ const Class = () => {
 
   const [activeWorkTab, setActiveWorkTab] = useState('classwork');
   const [expandedUnits, setExpandedUnits] = useState({});
+
+  const [studentCount, setStudentCount] = useState(0);
+
+
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [studentToDelete, setStudentToDelete] = useState(null);
+
 
   useEffect(() => {
     const fetchClassData = async () => {
@@ -53,31 +60,54 @@ const Class = () => {
         lrn: doc.data().lrn
       }));
 
+      studentsData.sort((a, b) => a.lrn.localeCompare(b.lrn));
+
+      setStudentCount(studentsData.length);
       setStudents(studentsData);
     } catch (error) {
       console.error('Error fetching students:', error);
     }
   };
+  const showDeleteModal = (student) => {
+    setStudentToDelete(student);
+    setIsModalVisible(true);
+  };
+
+  const handleRemoveStudent = async () => {
+    try {
+      if (studentToDelete) {
+        await deleteDoc(doc(db, 'students', studentToDelete.id));
+        setStudents((prevStudents) => prevStudents.filter((student) => student.id !== studentToDelete.id));
+        setStudentCount(studentCount - 1);
+      }
+      setIsModalVisible(false);
+      setStudentToDelete(null);
+    } catch (error) {
+      console.error('Error removing student:', error);
+    }
+  };
 
   const handleAddStudent = async () => {
-    if (!newStudent.firstName || !newStudent.lastName || !newStudent.lrn) {
+    if (!newStudent.firstName || !newStudent.lastName) {
       alert('Please fill in all fields for the new student.');
       return;
     }
 
-    const newStudentData = { ...newStudent, classCode: classCode };
+    // Generate Student Number (LRN)
+    const studentNumber = `${className}-${studentCount + 1}`;
+
+    const newStudentData = {
+      ...newStudent,
+      classCode: classCode,
+      lrn: studentNumber, // Auto-generated LRN
+    };
 
     try {
       await addDoc(collection(db, 'students'), newStudentData);
-
-      const classRef = doc(db, 'classes', id);
-      await updateDoc(classRef, {
-        students: arrayUnion(newStudent)
-      });
-
-      setStudents((prevStudents) => [...prevStudents, newStudent]);
-      setNewStudent({ firstName: '', lastName: '', lrn: '' });
+      setStudents((prevStudents) => [...prevStudents, newStudentData]);
+      setNewStudent({ firstName: '', lastName: '' });
       setShowAddStudentForm(false);
+      setStudentCount(studentCount + 1); // Increment student count
     } catch (error) {
       console.error('Error adding student:', error);
     }
@@ -142,14 +172,7 @@ const Class = () => {
                   value={newStudent.lastName}
                   onChange={(e) => setNewStudent({ ...newStudent, lastName: e.target.value })}
                 />
-                <input
-                  className='input-add'
-
-                  type="text"
-                  placeholder="LRN"
-                  value={newStudent.lrn}
-                  onChange={(e) => setNewStudent({ ...newStudent, lrn: e.target.value })}
-                />
+                
                 <div>
                 <button className="add-student btn btn-primary" onClick={handleAddStudent}>
                   Save Student
@@ -166,8 +189,9 @@ const Class = () => {
                 <tr>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>LRN</th>
+                  <th>Student Number</th>
                   <th>Profile</th>
+                  <th>Remove</th>
                 </tr>
               </thead>
               <tbody>
@@ -182,6 +206,14 @@ const Class = () => {
                         onClick={() => navigate(`/studentprofile/${student.lrn}`)}
                       >
                         View Profile
+                      </button>
+                    </td>
+                    <td>
+                    <button
+                        className="btn btn-danger btn-sm"
+                        onClick={() => showDeleteModal(student)}
+                      >
+                        Remove
                       </button>
                     </td>
                   </tr>
@@ -309,6 +341,24 @@ const Class = () => {
         </div>
 
         {renderContent()}
+        {isModalVisible && (
+          <div className="modal class-modal">
+            <div className="modal-content">
+              <h4>Are you sure you want to delete this student?</h4>
+              <p>
+                {studentToDelete?.firstName} {studentToDelete?.lastName} - {studentToDelete?.lrn}
+              </p>
+              <div className="modal-actions">
+                <button className="btn btn-danger" onClick={handleRemoveStudent}>
+                  Yes, Delete
+                </button>
+                <button className="btn btn-secondary" onClick={() => setIsModalVisible(false)}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
