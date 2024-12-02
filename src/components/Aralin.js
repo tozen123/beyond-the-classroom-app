@@ -24,6 +24,7 @@ const titlesMap = {
   14: 'Nag-iisip Ako Bago Gumawa',
   15: 'Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat',
   16: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
+  17: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
 };
 
 const Aralin = () => {
@@ -103,7 +104,8 @@ const Aralin = () => {
                 id: doc.id,
                 ...doc.data(),
               }));
-    
+
+
               // Fetch reflections
               const reflectionsRef = collection(db, `students/${studentId}/reflections`);
               const reflectionsSnapshot = await getDocs(reflectionsRef);
@@ -119,6 +121,7 @@ const Aralin = () => {
                 reflections,
               };
             })
+        
           );
     
           setStudents(studentsData);
@@ -149,12 +152,18 @@ const Aralin = () => {
                 <img src={layuninData.imageRefUrl} alt={layuninData.subTitle} className="layunin-image" />
                 <h2>{layuninData.subTitle}</h2>
                 <p>{layuninData.description}</p>
+                <p>{layuninData.objectives}</p>
+                <p>{layuninData.mainthought}</p>
               </>
             ) : (
               <p>Loading...</p>
             )}
           </div>
         );
+
+
+      
+        
       case 'Kuwento':
         return (
           <div className="content-section scrollable-content">
@@ -166,10 +175,11 @@ const Aralin = () => {
             ))}
           </div>
         );
+
         case 'Pagsusulit':
   return (
     <div className="content-section">
-      <h3>Assessments</h3>
+      <AssessmentSection students={students} />
       {students.map((student) => (
         <div key={student.id} className="student-card">
           <h4>{student.firstName} {student.lastName}</h4>
@@ -224,9 +234,6 @@ const Aralin = () => {
   );
 
 
-
-
-
         
   case 'Repleksiyon':
   return (
@@ -269,6 +276,13 @@ const Aralin = () => {
     }
   };
 
+  useEffect(() => {
+    const contentSection = document.querySelector('.content-section');
+    if (contentSection) {
+      contentSection.scrollTo(0, 0);  // Scroll to the top
+    }
+  }, [activeTab]); 
+
   return (
     <div>
       <Sidebar />
@@ -296,7 +310,68 @@ const Aralin = () => {
         {renderTabContent()}
       </div>
     </div>
+
   );
 };
+
+        const AssessmentSection = ({ students }) => {
+          const [activeSubTab, setActiveSubTab] = useState('Summary');
+        
+          const handleSubTabClick = (tab) => {
+            setActiveSubTab(tab);
+          };
+        
+          return (
+            <div className="assessment-section">
+              <h3>Assessments</h3>
+        
+              <div className="sub-tab-bar">
+                <button
+                  className={`sub-tab-item ${activeSubTab === 'Summary' ? 'active' : ''}`}
+                  onClick={() => handleSubTabClick('Summary')}
+                >
+                  Summary
+                </button>
+                <button
+                  className={`sub-tab-item ${activeSubTab === 'Question' ? 'active' : ''}`}
+                  onClick={() => handleSubTabClick('Question')}
+                >
+                  Question
+                </button>
+                <button
+                  className={`sub-tab-item ${activeSubTab === 'Individual' ? 'active' : ''}`}
+                  onClick={() => handleSubTabClick('Individual')}
+                >
+                  Individual
+                </button>
+              </div>
+        
+              <div className="sub-tab-content">
+                {activeSubTab === 'Summary' && (
+                  <div>
+                    <p>This is the Summary tab.</p>
+                    <p>Total Students: {students.length}</p>
+                  </div>
+                )}
+                {activeSubTab === 'Question' && (
+                  <div>
+                    <p>This is the Question tab.</p>
+                   
+                  </div>
+                )}
+                {activeSubTab === 'Individual' && (
+                  <div>
+                    <p>This is the Individual tab.</p>
+                    <ul>
+                      {students.map((student) => (
+                        <li key={student.id}>{student.name}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        };
 
 export default Aralin;
