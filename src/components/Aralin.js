@@ -349,19 +349,17 @@ const Aralin = () => {
               <div className="sub-tab-content">
                 {activeSubTab === 'Summary' && (
                   <div>
-                    <p>This is the Summary tab.</p>
                     <p>Total Students: {students.length}</p>
                   </div>
                 )}
                 {activeSubTab === 'Question' && (
                   <div>
-                    <p>This is the Question tab.</p>
                    
                   </div>
                 )}
                 {activeSubTab === 'Individual' && (
                   <div>
-                    <p>This is the Individual tab.</p>
+
                     <ul>
                       {students.map((student) => (
                         <li key={student.id}>{student.name}</li>

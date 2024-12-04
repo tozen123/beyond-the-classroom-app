@@ -145,15 +145,15 @@ const Class = () => {
     switch (activeTab) {
       case 'students':
         return (
+          
           <div className="content-section">
+            <div className='header-section'>
             <h2>List of Students</h2>
-            <button
-              className="add-btn btn btn-success add-student-btn"
-              onClick={() => setShowAddStudentForm(true)}
-            >
-              Add Student
-            </button>
-            
+            <button className="add-btn btn btn-success add-student-btn"
+              onClick={() => setShowAddStudentForm(true)}>
+              Add Student</button>
+            </div>
+
             {showAddStudentForm && (
               <div className="add-student-form">
                 <h3>Add New Student</h3>
@@ -187,9 +187,9 @@ const Class = () => {
             <table className="student-table">
               <thead>
                 <tr>
+                <th>Student Number</th>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>Student Number</th>
                   <th>Profile</th>
                   <th>Remove</th>
                 </tr>
@@ -197,24 +197,19 @@ const Class = () => {
               <tbody>
                 {students.map((student, index) => (
                   <tr key={index}>
+                    <td>{student.lrn}</td>
                     <td>{student.firstName}</td>
                     <td>{student.lastName}</td>
-                    <td>{student.lrn}</td>
+                    
                     <td>
-                      <button
-                        className="btn btn-primary btn-sm profile-link-btn"
-                        onClick={() => navigate(`/studentprofile/${student.lrn}`)}
-                      >
-                        View Profile
-                      </button>
+                      <button className="btn btn-primary btn-sm profile-link-btn" 
+                      onClick={() => navigate(`/studentprofile/${student.lrn}`)}>
+                        View Profile </button>
                     </td>
                     <td>
-                    <button
-                        className="btn btn-danger btn-sm"
-                        onClick={() => showDeleteModal(student)}
-                      >
-                        Remove
-                      </button>
+                    <button className="btn btn-danger btn-sm"
+                        onClick={() => showDeleteModal(student)}>
+                        Remove </button>
                     </td>
                   </tr>
                 ))}
@@ -231,7 +226,7 @@ const Class = () => {
               <div className="unit" onClick={() => toggleUnit(1)}>
                 <i className="fas fa-plus plus-icon"></i>
                 <span className="unit-name">Yunit I: Pananagutang Pansarili at Mabuting Kasapi ng Pamilya</span>
-                <i className="fas fa-lock lock-icon"></i>
+              
               </div>
               {expandedUnits[1] && (
                 <div className="unit-content">
@@ -245,7 +240,7 @@ const Class = () => {
               <div className="unit" onClick={() => toggleUnit(2)}>
                 <i className="fas fa-plus plus-icon"></i>
                 <span className="unit-name">Yunit II: Pakikipagkapuwa-Tao</span>
-                <i className="fas fa-lock lock-icon"></i>
+              
               </div>
               {expandedUnits[2] && (
                 <div className="unit-content">
@@ -259,28 +254,34 @@ const Class = () => {
               <div className="unit" onClick={() => toggleUnit(3)}>
                 <i className="fas fa-plus plus-icon"></i>
                 <span className="unit-name">Yunit III: Pagmamahal sa Bansa at Pakikibahagi sa Pandaigdigang Pagkakaisa</span>
-                <i className="fas fa-lock lock-icon"></i>
+
               </div>
               {expandedUnits[3] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/9`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/10`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/11`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/12`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/9`)}>Aralin 9: Mapanagutang Pamamahayag: Isasabuhay Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/10`)}>Aralin 10: Isinasaalang-alang Ko, Karapatan ng Iba</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/11`)}>Aralin 11: Nais kong Maging Mabuting Miyembro ng Pamayanan</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/12`)}>Aralin 12: Mga Natatanging Pilipino, Hinahangaan Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/13`)}>Aralin 13: Pinagkukunang-yaman: Pahalagahan at Pananagutan Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/14`)}>Aralin 14: Pagpapatupad ng Batas para Sa Kalikasan, Susuportahan Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/15`)}>Aralin 15: Kalidad ng Aking Gawain, Kaya Kong Ipagmalaki</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/16`)}>Aralin 16: Pagkamalikhain, Tulong ko sa Pag-unlad ng Bansa</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/17`)}>Aralin 17: Tumutupad ako sa Batas nang may Kasiyahan</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/18`)}>Aralin 18: Katulong Tayo sa Pagpapatupad ng Batas</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/19`)}>Aralin 19: Kapayapaan, Sisikapin Ko</div>
                 </div>
               )}
 
               <div className="unit" onClick={() => toggleUnit(4)}>
                 <i className="fas fa-plus plus-icon"></i>
                 <span className="unit-name">Yunit IV: Pananalig at Pagmamahal sa Diyos: Paninindigan sa Kabutihan</span>
-                <i className="fas fa-lock lock-icon"></i>
+              
               </div>
               {expandedUnits[4] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/13`)}>Aralin 1: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/14`)}>Aralin 2: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/15`)}>Aralin 3: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/16`)}>Aralin 4: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/20`)}>Aralin 20: Sisikapin Kong Maging Isang Mabuting Tao</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/14`)}>Aralin 21: May Pag-asang Dala ang Pananalig ko sa Diyos</div>
+                
                 </div>
               )}
             </div>
@@ -318,7 +319,7 @@ const Class = () => {
       <Sidebar />
       <NavigationBar />
       <div className="main-content">
-        <h1>Class: {className} Code: {classCode}</h1>
+        <h2 className='section-header'>Section: {className}</h2>
         <div className="tab-navigation">
           <button
             className={`tab-button ${activeTab === 'students' ? 'active' : ''}`}
@@ -343,21 +344,18 @@ const Class = () => {
         {renderContent()}
         {isModalVisible && (
           <div className="modal class-modal">
-            <div className="modal-content">
+            
               <h4>Are you sure you want to delete this student?</h4>
               <p>
                 {studentToDelete?.firstName} {studentToDelete?.lastName} - {studentToDelete?.lrn}
               </p>
               <div className="modal-actions">
-                <button className="btn btn-danger" onClick={handleRemoveStudent}>
-                  Yes, Delete
-                </button>
-                <button className="btn btn-secondary" onClick={() => setIsModalVisible(false)}>
-                  Cancel
-                </button>
+              <button className="btn btn-secondary" onClick={() => setIsModalVisible(false)}> Cancel </button>
+                <button className="btn btn-danger" onClick={handleRemoveStudent}> Yes, Delete </button>
+                
               </div>
             </div>
-          </div>
+      
         )}
       </div>
     </div>

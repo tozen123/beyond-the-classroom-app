@@ -1,17 +1,25 @@
 .create-class-div-parent {
     width: 80vw;
     height: 80vh;
+    margin-top: 5%;
+    margin-left: 11%;
     
 }
 .create-class-container {
+    width: 60vw; 
+    height: 100vh;
     padding: 20px;
-    max-width: 900px;
     margin: 0 auto;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
   }
-  
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   h1, h2 {
     color: #333;
   }
@@ -38,26 +46,18 @@
     justify-content: space-between;
   }
   
-  .save-btn, .cancel-btn {
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .save-btn {
-    background-color: #4CAF50;
-    color: white;
-  }
-  
-  .cancel-btn {
-    background-color: #ccc;
-  }
-  
+.btn-primary.btn-sm {
+  width: 15vw;
+  text-align: center;
+  margin-bottom: 20px;
+  vertical-align: center;
+
+}
   .student-table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    margin-bottom: 30px;
   }
   
   .student-table th, .student-table td {
@@ -70,6 +70,15 @@
     background-color: #f2f2f2;
   }
   
+
+.btn-secondary {
+  float: left;
+}
+
+.btn-success {
+  float: right; 
+}
+
   .add-student-btn {
     margin-top: 10px;
     padding: 8px 12px;

@@ -57,14 +57,12 @@ const Profile = () => {
   };
 
   return (
-    <div className="d-flex">
+    <div className="d-flex w-100">
       <Sidebar />
       <div className="w-100">
         <NavigationBar />
         <div className="container mt-5">
-          <h1 className="mb-4">Teacher Profile</h1>
-          <div className="card p-4">
-            <div className="card-body">
+          <h2 className="mb-2">Teacher Profile</h2>
               <div className="mb-3">
                 <div className="card mb-3">
                   <div className="card-body">
@@ -118,8 +116,6 @@ const Profile = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 };
 
