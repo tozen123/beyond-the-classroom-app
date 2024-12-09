@@ -1,10 +1,13 @@
+
+
 .class-page {
     display: flex;
     
   }
-  .add-btn {
-    width: 100%;
+  .btn-danger, .btn-primary {
+    align-self: center;
   }
+
   .main-content {
     margin-left: 260px;
     flex: 1;
@@ -30,6 +33,7 @@
     
   }
   .class-modal {
+    background-color: none;
     margin: 20% 45%;
     align-self: auto;
     padding: 20px;
@@ -39,19 +43,30 @@
     text-align: center;
     z-index: 1001;
   }
+
+  .modal-actions {
+    background-color: none;
+  }
   .add-student {
+    background-color: none;
     height: 50px;
     width: 50%;
     margin: 1%;
   }
+
+  .section-header {
+    text-align: left;
+  }
   .tab-button {
     padding: 10px 20px;
     border: none;
-    background-color: #f0f0f0;
+    background-color: #e0e0e0;
     cursor: pointer;
     border-radius: 4px;
     width: 100%;
   }
+
+
   .input-add{
     margin: 1%;
   }
@@ -71,6 +86,17 @@
     margin: 0 auto;
     text-align: center;
   }
+
+  .header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .btn-success.add-student-btn {
+    width: 10vw;
+  }
+  
   .student-table {
     width: 100%;
     border-collapse: collapse;
@@ -90,9 +116,25 @@
   .student-table tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  .btn-primary, .btn-danger {
+    justify-content: center;
+    align-items: center;
+    width: 10vw;
+  }
+
+  .add-student.btn-secondary {
+    width: 8vw;
+    height: 3vw;
+    margin-inline-start: 21%;
+  }
+
+  .add-student.btn-primary {
+    height: 3vw;
+  }
   .leaderboard-list {
     width: 100%;
-    max-width: 600px;
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -102,6 +144,7 @@
   .leaderboard-item {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 1%;
     padding: 15px;
     border-radius: 8px;
     font-weight: bold;
@@ -138,6 +181,7 @@
   margin-top: 2%;
   display: flex;
   align-items: center;
+  background-color: #e0e0e0;
   border-bottom: 3px solid hsl(0, 0%, 87%);
   padding: 10px;
   margin-bottom: 0%;
@@ -164,17 +208,17 @@
   font-size: 18px;
   border: 3px solid hsl(0, 0%, 87%);
   border-top: #fff;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  max-height: 250px;
-  overflow: hidden ;
+  max-height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
 }
 
 .unit-content.show {
   color:#000;
   display: block;
-  max-height: 500px;
+  max-height: 800px;
+
 }
 .aralin-item {
   padding: 10px;
@@ -193,7 +237,7 @@
 .unit {
   padding: 15px;
   margin: 10px 0;
-  background-color: #eceff1;
+  background-color: #ffffff;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -214,10 +258,6 @@
 
 .unit:hover .plus-icon {
   transform: rotate(90deg);
-}
-
-.lock-icon {
-  color: #b0bec5;
 }
 
 .unit-content {

@@ -1,16 +1,19 @@
 .profile-page {
+    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 10%;
   }
   
   .profile-container {
-    max-width: 400px;
+    width: 100vw;
     margin: auto;
   }
   
   .profile-card {
+    width: 100vw;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;

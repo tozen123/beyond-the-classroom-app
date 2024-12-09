@@ -58,7 +58,7 @@ const Sidebar = () => {
 
             <Link>
               <i className="fas fa-chalkboard-teacher"></i>
-              <span className="link-name">Classes</span>
+              <span className="link-name">Section</span>
             </Link>
             <i className={`fas fa-caret-down arrow ${isSubMenuOpen ? 'rotate' : ''}`}></i>
           </div>
@@ -67,7 +67,7 @@ const Sidebar = () => {
               {classes.map((classData) => (
                 <li key={classData.id}>
                   <Link to={`/class/${classData.id}`}>
-                    {`Class: ${classData.section}`}
+                    {`Section: ${classData.section}`}
                   </Link>
                 </li>
               ))}
