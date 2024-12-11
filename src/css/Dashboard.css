@@ -5,8 +5,9 @@
   }
   
   .dashboard-header h1 {
-    font-size: 24px;
+    font-size: 26px;
     color: #333;
+    margin-bottom: 2%;
   }
   
   .dashboard-grid {
@@ -14,7 +15,7 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
   }
-  
+  /*
   .dashboard-card {
     width: 250px;
     height: 180px;
@@ -38,4 +39,105 @@
   .view-class-link {
     color: #4c6d99;
     text-decoration: none;
+  } */
+
+  .dashboard-card {
+    width: 250px;
+    height: 180px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    overflow: hidden;
+    position: relative;
   }
+  
+  .class-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  .class-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .three-dot-menu {
+    font-size: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .fa-ellipsis-vertical {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .menu-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .menu-options button {
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+  
+  .menu-options button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .view-class-link {
+    float: right;
+    color: #4c6d99;
+    text-decoration: none;
+  }
+
+  .view-class-link:hover {
+    color: #365986;
+  }
+  
+  .input-box {
+    width: 170px; 
+    height: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-class-name:focus {
+    border-color: #4c6d99;
+    outline: none;
+  }
+  
+  .input-class-name::placeholder {
+    color: #999;
+    font-style: italic; 
+  }
+  

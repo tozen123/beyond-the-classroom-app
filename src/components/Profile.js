@@ -59,7 +59,7 @@ const Profile = () => {
   return (
     <div className="d-flex w-100">
       <Sidebar />
-      <div className="w-100">
+      <div className="profile-page">
         <NavigationBar />
         <div className="container mt-5">
           <h2 className="mb-2">Teacher Profile</h2>

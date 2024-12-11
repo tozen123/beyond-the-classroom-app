@@ -14,25 +14,28 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const titlesMap = {
-  1: 'Mahirap Man ang Gawain Kakayanin Ko',
+  1: 'Mahirap Man ang Gawain Kakayanin Ko', 
   2: 'Nag-iisip Ako Bago Gumawa',
   3: 'Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat',
   4: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
-  5: 'Mahirap Man ang Gawain Kakayanin Ko',
-  6: 'Nag-iisip Ako Bago Gumawa',
-  7: 'Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat',
-  8: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
-  9: 'Mahirap Man ang Gawain Kakayanin Ko',
-  10: 'Nag-iisip Ako Bago Gumawa',
-  11: 'Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat',
-  12: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
-  13: 'Mahirap Man ang Gawain Kakayanin Ko',
-  14: 'Nag-iisip Ako Bago Gumawa',
-  15: 'Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat',
-  16: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
-  17: 'Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito',
+  5: 'Suhestiyon ng Aking Kapuwa, Iginagalang Ko',
+  6: 'Ako ay May Isang Salita',
+  7: 'Kapuwa Ko, Pinagmamalasakitan Ko',
+  8: 'Idea Mo, Igagalang Ko',
+  9: 'Mapanagutang Pamamahayag: Isasabuhay Ko',
+  10: 'Isinasaalang-alang Ko, Karapatan ng Iba',
+  11: 'Nais kong Maging Mabuting Miyembro ng Pamayanan',
+  12: 'Mga Natatanging Pilipino, Hinahangaan Ko',
+  13: 'Pinagkukunang-yaman: Pahalagahan at Pananagutan Ko',
+  14: 'Pagpapatupad ng Batas para sa Kalikasan, Susuportahan Ko',
+  15: 'Kalidad ng Aking Gawain, Kaya Kong Ipagmalaki',
+  16: 'Pagkamalikhain, Tulong ko sa Pag-unlad ng Bansa',
+  17: 'Tumutupad ako sa Batas nang may Kasiyahan',
+  18: 'Katulong Tayo sa Pagpapatupad ng Batas',
+  19: 'Kapayapaan, Sisikapin Ko',
+  20: 'Sisikapin Kong Maging Isang Mabuting Tao',
+  21: 'May Pag-asang Dala ang Pananalig ko sa Diyos',
 };
-
 const Aralin = () => {
   const {  id, classid } = useParams();
   const [activeTab, setActiveTab] = useState('Layunin');
@@ -196,38 +199,30 @@ const Aralin = () => {
 
         
   case 'Repleksiyon':
-  return (
-    <div className="content-section">
-      <h3>Reflections</h3>
-      {students.map((student) => (
-        <div key={student.id} className="student-card">
-          <h4>{student.firstName} {student.lastName}</h4>
-          <p><strong>Class Code:</strong> {student.classCode}</p>
-          {student.reflections.length > 0 ? (
-            student.reflections.map((reflection) => (
-              <div key={reflection.id} className="reflection-card">
-                <h5 onClick={() => toggleReflection(reflection.id)}>
-                  Reflection Level: {reflection.level} {expandedReflections[reflection.id] ? '-' : '+'}
-                </h5>
-                {expandedReflections[reflection.id] && (
+    return (
+      <div className="content-section">
+        <h3>Reflections</h3>
+        {students.map((student) => (
+          <div key={student.id} className="student-card">
+            <h4>{student.firstName} {student.lastName}</h4>
+            <p><strong>Class Code:</strong> {student.classCode}</p>
+            {student.reflections.length > 0 ? (
+              student.reflections.map((reflection) => (
+                <div key={reflection.id} className="reflection-card">
+                  <h5>Reflection Level: {reflection.level}</h5>
                   <div className="reflection-details">
                     <p><strong>Reflection:</strong> {reflection.reflection}</p>
-                    <p><strong>Date:</strong> 
-                      {reflection.timestamp && reflection.timestamp.seconds 
-                        ? new Date(reflection.timestamp.seconds * 1000).toLocaleDateString() 
-                        : 'No Date Available'}
-                    </p>
                   </div>
-                )}
-              </div>
-            ))
-          ) : (
-            <p>No Data Available</p>
-          )}
-        </div>
-      ))}
-    </div>
-  );
+                </div>
+              ))
+            ) : (
+              <p>No Data Available</p>
+            )}
+          </div>
+        ))}
+      </div>
+    );
+  
 
 
   
@@ -392,61 +387,66 @@ const AssessmentSection = ({ students }) => {
     )}
   </div>
 )}
+{activeSubTab === 'Individual' && (
+  <div>
+    {students.map((student) => (
+      <div key={student.id} className="student-card">
+        <h4>{student.firstName} {student.lastName}</h4>
+        <p><strong>Class Code:</strong> {student.classCode}</p>
+        {student.assessments.length > 0 ? (
+          student.assessments.map((assessment) => {
+            const maxScore = assessment.answers.length;
 
-                {activeSubTab === 'Individual' && (
-          <div>
-            {students.map((student) => (
-              <div key={student.id} className="student-card">
-                <h4>{student.firstName} {student.lastName}</h4>
-                <p><strong>Class Code:</strong> {student.classCode}</p>
-                {student.assessments.length > 0 ? (
-                  student.assessments.map((assessment) => {
-                    const maxScore = assessment.answers.length;
-
-                    return (
-                      <div key={assessment.id} className="assessment-card">
-                        <h5 onClick={() => toggleAssessment(assessment.id)}>
-                          Quiz ID: {assessment.quizId || assessment.id} {expandedAssessments[assessment.id] ? '-' : '+'}
-                        </h5>
-                        {expandedAssessments[assessment.id] && (
-                          <div className="assessment-details">
-                            <p><strong>Score:</strong> {assessment.score}/{maxScore}</p>
-                            <p><strong>Percentage:</strong> 
-                              {maxScore > 0 
-                                ? ((assessment.score / maxScore) * 100).toFixed(2) + '%' 
-                                : 'N/A'}
-                            </p>
-                            <p><strong>Status:</strong> {assessment.passed ? 'Passed' : 'Failed'}</p>
-                            <p><strong>Date Taken:</strong> 
-                              {assessment.date && assessment.date.seconds 
-                                ? new Date(assessment.date.seconds * 1000).toLocaleDateString() 
-                                : 'No Date Available'}
-                            </p>
-
-                            <div className="questions-section">
-                              {assessment.answers.map((answer, idx) => (
-                                <div
-                                  key={idx}
-                                  className={`question-card ${answer.correct ? 'correct' : 'incorrect'}`}
-                                >
-                                  <p><strong>Question:</strong> {answer.questionText}</p>
-                                  <p><strong>Your Answer:</strong> {answer.selectedAnswer}</p>
-                                  <p><strong>Correct:</strong> {answer.correct ? 'Yes' : 'No'}</p>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
+            return (
+              <div key={assessment.id} className="assessment-card">
+                <h5 onClick={() => toggleAssessment(assessment.id)}>
+                  Pagsusulit: {assessment.quizId || assessment.id} {expandedAssessments[assessment.id] ? <i className="fa-solid fa-caret-up"></i> : <i className="fa-solid fa-caret-down"></i> }
+                </h5>
+                <table className="assessment-details">
+                <tbody>
+      <tr>
+        <td><strong>Score:</strong></td>
+        <td>{assessment.score}/{maxScore}</td>
+      </tr>
+      <tr>
+        <td><strong>Percentage:</strong></td>
+        <td>
+          {maxScore > 0 
+            ? ((assessment.score / maxScore) * 100).toFixed(2) + '%' 
+            : 'N/A'}
+        </td>
+      </tr>
+      <tr>
+        <td><strong>Status:</strong></td>
+        <td>{assessment.passed ? 'Passed' : 'Failed'}</td>
+      </tr>
+    </tbody>
+                </table>
+                {expandedAssessments[assessment.id] && (
+                  <div className="questions-section">
+                    {assessment.answers.map((answer, idx) => (
+                      <div
+                        key={idx}
+                        className={`question-card ${answer.correct ? 'correct' : 'incorrect'}`}
+                      >
+                        <p><strong>Question:</strong> {answer.questionText}</p>
+                        <p><strong>Your Answer:</strong> {answer.selectedAnswer}</p>
+                        <p><strong>Correct:</strong> {answer.correct ? 'Yes' : 'No'}</p>
                       </div>
-                    );
-                  })
-                ) : (
-                  <p>No Assessments Available</p>
+                    ))}
+                  </div>
                 )}
               </div>
-            ))}
-          </div>
+            );
+          })
+        ) : (
+          <p>No Assessments Available</p>
         )}
+      </div>
+    ))}
+  </div>
+)}
+
       </div>
     </div>
   );

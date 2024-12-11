@@ -29,10 +29,10 @@ const NavigationBar = () => {
         
       </div>
       {showLogoutModal && (
-        <div className="modal-overlay" onClick={() => setShowLogoutModal(false)}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}> 
+        <div className="modal-overlay-logout" onClick={() => setShowLogoutModal(false)}>
+          <div className="modal-logout" onClick={(e) => e.stopPropagation()}> 
             <p>Are you sure you want to log out?</p>
-            <div className="modal-actions">
+            <div className="modal-actions-logout">
               <button onClick={() => setShowLogoutModal(false)}>Cancel</button>
               <button onClick={handleLogout} style={{ backgroundColor: 'red', color: 'white' }}>Yes, Log Out</button>
             </div>

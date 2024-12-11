@@ -244,10 +244,10 @@ const Class = () => {
               </div>
               {expandedUnits[2] && (
                 <div className="unit-content">
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/5`)}>Aralin 5: Mahirap Man ang Gawain Kakayanin Ko</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/6`)}>Aralin 6: Nag-iisip Ako Bago Gumawa</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/7`)}>Aralin 7: Pasiya Mo, Pasiya Ko: Sa Ikabubuti ng Lahat</div>
-                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/8`)}>Aralin 8: Tamang Impormasyon, Sinisiguro Ko, Bago Gamitin Ito</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/5`)}>Aralin 5: Suhestiyon ng Aking Kapuwa, Iginagalang Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/6`)}>Aralin 6: Ako ay May Isang Salita</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/7`)}>Aralin 7: Kapuwa Ko, Pinagmamalasakitan Ko</div>
+                  <div className="aralin-item" onClick={() => navigate(`/aralin/${id}/8`)}>Aralin 8: Idea Mo, Igagalang Ko</div>
                 </div>
               )}
 
