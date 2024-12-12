@@ -76,6 +76,9 @@ const Aralin = () => {
 
     console.log('Aralin ID:', id);
     console.log('Class ID:', classid);
+    if (id.split('/')[1] === "1") {
+      setStoryContent(storyData.parts);
+    }
 
 
     const fetchLayuninData = async () => {
@@ -147,10 +150,7 @@ const Aralin = () => {
 
     fetchLayuninData();
 
-    if (id.split('/')[1] === "1") {
-      setStoryContent(storyData.parts);
-    }
-
+   
     fetchStudents();
   }, [id]);
 
@@ -176,17 +176,17 @@ const Aralin = () => {
 
       
         
-      case 'Kuwento':
-        return (
-          <div className="content-section scrollable-content">
-            {storyContent.map((part, index) => (
-              <div key={index} className="story-part">
-                <img src={part.image} alt={`Part ${index + 1}`} className="story-image" />
-                <p>{part.text}</p>
-              </div>
-            ))}
-          </div>
-        );
+        case 'Kuwento':
+          return (
+            <div className="content-section scrollable-content">
+              {storyContent.map((part, index) => (
+                <div key={part.id} className="story-part">
+                  <img src={part.image} alt={`Part ${index + 1}`} className="story-image" />
+                  <p>{part.text}</p>
+                </div>
+              ))}
+            </div>
+          );
 
         case 'Pagsusulit':
   return (
