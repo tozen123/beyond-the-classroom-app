@@ -107,7 +107,7 @@ const StudentProfile = () => {
               <div className="progress-bar">
                 <span className="progress-bar-fill" style={{ width: `${progress}%` }}></span>
               </div>
-              <p>Progress: {progress}% Completed</p>
+              <h5>Progress: {progress}% Completed</h5>
             </div>
 
             <div className="assessments-section">

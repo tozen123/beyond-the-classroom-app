@@ -56,41 +56,44 @@
     background-color: #ddd;
   }
   
-  .modal-overlay {
-    height: 25%;
-    width: 25%;
+  .modal-overlay-logout {
+    height: 100%;
+    width: 100%;
     background: rgba(0, 0, 0, 0.5);
     
     z-index: 1000;
   }
   
-  .modal {
-    margin: 25%;
+  .modal-logout {
+    margin-top: 0%;
+    margin-left: 10%;
     align-self: auto;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 250px;
-    height: 15%;
+    max-width: 300px;
+    height: 25%;
     text-align: center;
     z-index: 1001;
-
     display: block;
   }
   
   
-  .modal p {
+  .modal-logout p {
     margin-bottom: 20px;
     font-size: 18px;
   }
   
-  .modal-actions {
+  .modal-actions-logout {
     display: flex;
     justify-content: space-around;
   }
   
-  .modal-actions button {
+  .modal-actions-logout button {
+    height: fit-content;
+    width: fit-content;
+    margin-right: 5px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -98,15 +101,15 @@
     border-radius: 4px;
   }
   
-  .modal-actions button:first-child {
+  .modal-actions-logout button:first-child {
     background-color: #ccc;
   }
   
-  .modal-actions button:last-child {
+  .modal-actions-logout button:last-child {
     background-color: #ff0000;
     color: #fff;
   }
-  .modal.show { 
+  .modal-logout.show { 
     display: block;
   }
 

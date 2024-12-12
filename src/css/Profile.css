@@ -1,19 +1,23 @@
+
 .profile-page {
-    width: 100vw;
+    width: 50vw;
     height: 100vh;
+    margin-left: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 10%;
+    
+    
   }
   
   .profile-container {
-    width: 100vw;
+    
+  
     margin: auto;
   }
   
   .profile-card {
-    width: 100vw;
+    
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -40,4 +44,6 @@
   .btn-primary, .btn-secondary, .btn-success {
     width: 100px;
   }
+
+
   
