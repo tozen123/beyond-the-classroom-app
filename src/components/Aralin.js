@@ -73,10 +73,9 @@ const Aralin = () => {
   };
   
   useEffect(() => {
-
     console.log('Aralin ID:', id);
     console.log('Class ID:', classid);
-    if (id.split('/')[1] === "1") {
+    if (id === "1") {
       setStoryContent(storyData.parts);
     }
 
